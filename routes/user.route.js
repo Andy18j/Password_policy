@@ -162,7 +162,9 @@ require("dotenv").config();
 const userRouter = express.Router();
 
 const defaultPasswordPolicy = {
-    min_length: 12,
+    // min_length: 12,
+    min_length:8,
+    max_length:15,
     uppercase_required: 2,
     lowercase_required: 6,
     number_required: 2,

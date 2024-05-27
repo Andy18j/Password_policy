@@ -57,6 +57,16 @@ async function validatePassword(password, policy) {
 
 
     // Check counts against policy requirements
+
+    if (password.length < policy.min_length) {
+        return { isValid: false, msg: `Password must be at least ${policy.min_length} characters long.` };
+    }
+
+    if (password.length > policy.max_length) {
+        return { isValid: false, msg: `Password must be no more than ${policy.max_length} characters long.` };
+    }
+
+    
     if (lowercaseCount < policy.lowercase_required) {
         return { isValid: false, msg: `Password must contain at least ${policy.lowercase_required} lowercase letters.` };
     }
@@ -74,9 +84,11 @@ async function validatePassword(password, policy) {
     }
 
     
-    if (password.length != 12) {
-        return { isValid: false, msg: "Password must be exactly 12 characters long." };
-    }
+    // if (password.length != 12) {
+    //     return { isValid: false, msg: "Password must be exactly 12 characters long." };
+    // }
+
+   
 
 
     // Password meets all requirements

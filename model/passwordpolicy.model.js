@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
 
 const passwordPolicySchema = mongoose.Schema({
-    min_length: { type: Number, required: true},
+    // min_length: { type: Number, required: true},
+    
+    min_length: { type: Number, required: true, default: 8 },
+    max_length: { type: Number, required: true, default: 15 },
+
     uppercase_required: { type: Number, required: true },
     lowercase_required: { type: Number, required: true },
     number_required: { type: Number, required: true },
